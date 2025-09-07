@@ -1,6 +1,11 @@
 package main
 
-// ?
+func (u User) SendMessage(message string, messageLength int) (string, bool) {
+	if u.MessageCharLimit < messageLength {
+		return "", false
+	}
+	return message, true
+}
 
 // don't touch below this line
 
