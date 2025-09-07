@@ -11,6 +11,10 @@ type contractor struct {
 	hoursPerYear int
 }
 
+func (c contractor) getSalary() int {
+	return c.hourlyPay * c.hoursPerYear
+}
+
 func (c contractor) getName() string {
 	return c.name
 }
