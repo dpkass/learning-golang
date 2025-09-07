@@ -1,7 +1,15 @@
 package main
 
 func getExpenseReport(e expense) (string, float64) {
-	// ?
+	m, ok := e.(email)
+	if ok {
+		return m.toAddress, m.cost()
+	}
+	s, ok := e.(sms)
+	if ok {
+		return s.toPhoneNumber, s.cost()
+	}
+	return "", 0.0
 }
 
 // don't touch below this line
