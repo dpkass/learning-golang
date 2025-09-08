@@ -36,5 +36,12 @@ func (lm LinkMessage) Type() string {
 // Don't touch above this line
 
 func filterMessages(messages []Message, filterType string) []Message {
-	// ?
+	retained := []Message{}
+	for _, msg := range messages {
+		if msg.Type() != filterType {
+			continue
+		}
+		retained = append(retained, msg)
+	}
+	return retained
 }
